@@ -13,8 +13,12 @@ Array.prototype.myEach = function(callbackFn) {
 };
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(callbackFn) {
+    let arr = [];
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        arr.push(callbackFn(this[i]));
+    }
 };
 
 // FILTER //
@@ -78,7 +82,7 @@ Object.grabValues = function() {
 /*
 TESTING
 */
-
+//myEach
 // const isEven = (number) => console.log(number % 2 === 0);
 // let temp0 = [1, 2, 3, 4];
 // console.log("forEach:");
@@ -86,7 +90,7 @@ TESTING
 // console.log("myEach:");
 // temp0.myEach(isEven);
 
-
+//myPush 
 // console.log("push:");
 // let temp1 = [1, 2, 3, 4];
 // temp1.push(5, 6, 7, 8);
@@ -96,4 +100,18 @@ TESTING
 // let temp2 = [1, 2, 3, 4];
 // temp2.myPush(5, 6, 7, 8);
 // console.log(temp2);
+
+//myMap
+console.log("map:");
+let numbers = [1, 4, 9];
+let doubles = numbers.map(function(num) {
+    return num * 2;
+});
+console.log(numbers);
+console.log(doubles);
+
+let doubles2 = numbers.myMap(function(num) {
+    return num * 2;
+});
+console.log("myMap: \n", doubles2);
 
