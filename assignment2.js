@@ -63,8 +63,14 @@ Array.prototype.myReduce = function(callbackFn, initialValue) {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
+    for(let i = fromIndex; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        if(Object.is(this[i], searchElement)) return true;
+        if(this[i] === searchElement) return true;
+        
+    }
+    return false;
 };
 
 // INDEXOF //
@@ -168,3 +174,20 @@ TESTING
 // console.log("reducer: ");
 // console.log(array1.myReduce(reducer));
 // console.log(array1.myReduce(reducer, 5));
+
+//myIncludes
+// console.log("includes: ")
+// console.log([1, 2, 3].includes(2))
+// console.log([1, 2, 3].includes(4))
+// console.log([1, 2, 3].includes(3, 3))
+// console.log([1, 2, 3].includes(3, -1))
+// console.log([1, 2, NaN].includes(NaN))
+// console.log([-0].includes(0))
+
+// console.log("myIncludes: ")
+// console.log([1, 2, 3].myIncludes(2))
+// console.log([1, 2, 3].myIncludes(4))
+// console.log([1, 2, 3].myIncludes(3, 3))
+// console.log([1, 2, 3].myIncludes(3, -1))
+// console.log([1, 2, NaN].myIncludes(NaN))
+// console.log([-0].myIncludes(0))
