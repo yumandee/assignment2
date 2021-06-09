@@ -122,20 +122,20 @@ TESTING
 // console.log("myMap: \n", doubles2);
 
 //myFilter
-console.log("filter:");
-let words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.filter(word => word.length > 6);
-console.log(result);
+// console.log("filter:");
+// let words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+// const result = words.filter(word => word.length > 6);
+// console.log(result);
 
-console.log("myFilter:");
-const myResult = words.myFilter(word => word.length > 6);
-console.log(myResult);
+// console.log("myFilter:");
+// const myResult = words.myFilter(word => word.length > 6);
+// console.log(myResult);
 
 //mySome
-console.log("some:");
-let arr = [1, 3, 5, ];
-let even = (element) => element % 2 === 0;
-console.log(arr.some(even));
+// console.log("some:");
+// let arr = [1, 3, 5, ];
+// let even = (element) => element % 2 === 0;
+// console.log(arr.some(even));
 
-console.log("mySome:");
-console.log(arr.mySome(even));
+// console.log("mySome:");
+// console.log(arr.mySome(even));
