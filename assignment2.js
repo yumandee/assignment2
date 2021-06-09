@@ -51,8 +51,15 @@ Array.prototype.myEvery = function(callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callbackFn, initialValue) {
+    let accumulator = 0;
+    if(initialValue !== undefined)
+        accumulator = initialValue;
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        accumulator = callbackFn(accumulator, this[i], i, this);
+    }
+    return accumulator;
 };
 
 // INCLUDES //
@@ -150,3 +157,14 @@ TESTING
 // console.log("every:", array1.every(isBelowThreshold));
 
 // console.log("myEvery:", array1.myEvery(isBelowThreshold));
+
+//myReduce
+let array1 = [1, 2, 3, 4];
+let reducer = (x, y) => x + y;
+console.log("reduce:");
+console.log(array1.reduce(reducer));
+console.log(array1.reduce(reducer, 5));
+
+console.log("reducer: ");
+console.log(array1.myReduce(reducer));
+console.log(array1.myReduce(reducer, 5));
