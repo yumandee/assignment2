@@ -28,8 +28,12 @@ Array.prototype.myFilter = function() {
 };
 
 // SOME //
-Array.prototype.mySome = function() {
-
+Array.prototype.mySome = function(callbackFn) {
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        if(callbackFn(this[i], i, this)) return true;
+    }
+    return false;
 };
 
 // EVERY //
@@ -103,12 +107,20 @@ TESTING
 // console.log(temp2);
 
 //myMap
-console.log("map:");
-let numbers = [1, 4, , 16];
-let doubles = numbers.map(x => x * x);
-console.log(numbers);
-console.log(doubles);
+// console.log("map:");
+// let numbers = [1, 4, , 16];
+// let doubles = numbers.map(x => x * x);
+// console.log(numbers);
+// console.log(doubles);
 
-let doubles2 = numbers.myMap(x => x * x);
-console.log("myMap: \n", doubles2);
+// let doubles2 = numbers.myMap(x => x * x);
+// console.log("myMap: \n", doubles2);
 
+//mySome
+console.log("some:");
+let arr = [1, 3, 5, ];
+let even = (element) => element % 2 === 0;
+console.log(arr.some(even));
+
+console.log("mySome:");
+console.log(arr.mySome(even));
