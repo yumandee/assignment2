@@ -16,15 +16,20 @@ Array.prototype.myEach = function(callbackFn) {
 Array.prototype.myMap = function(callbackFn) {
     let arr = [];
     for(let i = 0; i < this.length; i++) {
-        if(this[i] === undefined) continue
+        if(this[i] === undefined) continue;
         else arr[i] = callbackFn(this[i], i, this);
     }
     return arr;
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(callbackFn) {
+    let arr = [];
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        if(callbackFn(this[i], i, this)) arr.push(this[i]);   
+    }
+    return arr;
 };
 
 // SOME //
@@ -115,6 +120,16 @@ TESTING
 
 // let doubles2 = numbers.myMap(x => x * x);
 // console.log("myMap: \n", doubles2);
+
+//myFilter
+console.log("filter:");
+let words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result);
+
+console.log("myFilter:");
+const myResult = words.myFilter(word => word.length > 6);
+console.log(myResult);
 
 //mySome
 console.log("some:");
