@@ -19,6 +19,7 @@ Array.prototype.myMap = function(callbackFn) {
         if(this[i] === undefined) continue;
         arr.push(callbackFn(this[i]));
     }
+    return arr;
 };
 
 // FILTER //
