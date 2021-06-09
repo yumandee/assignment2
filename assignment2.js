@@ -33,8 +33,12 @@ Array.prototype.myFilter = function(callbackFn) {
 };
 
 // SOME //
-Array.prototype.mySome = function() {
-
+Array.prototype.mySome = function(callbackFn) {
+    for(let i = 0; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        if(callbackFn(this[i], i, this)) return true;
+    }
+    return false;
 };
 
 // EVERY //
@@ -126,3 +130,12 @@ console.log(result);
 console.log("myFilter:");
 const myResult = words.myFilter(word => word.length > 6);
 console.log(myResult);
+
+//mySome
+console.log("some:");
+let arr = [1, 3, 5, ];
+let even = (element) => element % 2 === 0;
+console.log(arr.some(even));
+
+console.log("mySome:");
+console.log(arr.mySome(even));
