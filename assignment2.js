@@ -16,8 +16,8 @@ Array.prototype.myEach = function(callbackFn) {
 Array.prototype.myMap = function(callbackFn) {
     let arr = [];
     for(let i = 0; i < this.length; i++) {
-        if(this[i] === undefined) continue;
-        arr.push(callbackFn(this[i]));
+        if(this[i] === undefined) continue
+        else arr[i] = callbackFn(this[i], i, this);
     }
     return arr;
 };
@@ -104,15 +104,11 @@ TESTING
 
 //myMap
 console.log("map:");
-let numbers = [1, 4, 9];
-let doubles = numbers.map(function(num) {
-    return num * 2;
-});
+let numbers = [1, 4, , 16];
+let doubles = numbers.map(x => x * x);
 console.log(numbers);
 console.log(doubles);
 
-let doubles2 = numbers.myMap(function(num) {
-    return num * 2;
-});
+let doubles2 = numbers.myMap(x => x * x);
 console.log("myMap: \n", doubles2);
 
