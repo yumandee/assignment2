@@ -159,12 +159,12 @@ TESTING
 // console.log("myEvery:", array1.myEvery(isBelowThreshold));
 
 //myReduce
-let array1 = [1, 2, 3, 4];
-let reducer = (x, y) => x + y;
-console.log("reduce:");
-console.log(array1.reduce(reducer));
-console.log(array1.reduce(reducer, 5));
+// let array1 = [1, 2, 3, 4];
+// let reducer = (x, y) => x + y;
+// console.log("reduce:");
+// console.log(array1.reduce(reducer));
+// console.log(array1.reduce(reducer, 5));
 
-console.log("reducer: ");
-console.log(array1.myReduce(reducer));
-console.log(array1.myReduce(reducer, 5));
+// console.log("reducer: ");
+// console.log(array1.myReduce(reducer));
+// console.log(array1.myReduce(reducer, 5));
