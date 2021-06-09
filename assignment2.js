@@ -74,8 +74,17 @@ Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
+Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
+    if(fromIndex < 0) fromIndex = this.length + fromIndex;
 
+    for(let i = fromIndex; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        // console.log("is", this[i], "equal to", searchElement, "y/n:", Object.is(this[i], searchElement))
+        if(Object.is(this[i], searchElement)) return i;
+    }
+
+    return -1;
+    
 };
 
 // PUSH //
@@ -191,3 +200,22 @@ TESTING
 // console.log([1, 2, 3].myIncludes(3, -1))
 // console.log([1, 2, NaN].myIncludes(NaN))
 // console.log([-0].myIncludes(0))
+
+//myIndexOf
+let array = [2, 9, 9];
+console.log("indexOf: ")
+
+console.log(array.indexOf(2))
+console.log(array.indexOf(7))
+console.log(array.indexOf(9, 2))
+console.log(array.indexOf(2, -1))
+console.log(array.indexOf(2, -3))
+
+console.log("myIndexOf: ")
+
+console.log(array.myIndexOf(2))
+console.log(array.myIndexOf(7))
+console.log(array.myIndexOf(9, 2))
+console.log(array.myIndexOf(2, -1))
+console.log(array.myIndexOf(2, -3))
+
