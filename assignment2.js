@@ -112,8 +112,13 @@ Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length 
 };
 
 // KEYS //
-Object.grabKeys = function() {
-
+Object.grabKeys = function(obj) {
+    let arr = [];
+    let entries = Object.entries(obj);   
+    for(let i = 0; i < entries.length; i++)
+        arr.push(entries[i][0])    
+    
+    return arr;
 };
 
 // VALUES //
@@ -243,3 +248,26 @@ TESTING
 // console.log(numbers.myLastIndexOf(2, 2));  // 0
 // console.log(numbers.myLastIndexOf(2, -2)); // 0
 // console.log(numbers.myLastIndexOf(2, -1)); // 3
+
+//grabKeys
+// console.log("keys: ")
+// let arr1 = ['a','b','c'];
+// let obj = {0: 'a', 1: 'b', 2: 'c'};
+// let anObj  = {100: 'a', 2: 'b', 7: 'c'};
+// // getFoo is a property which isn't enumerable
+// const myObj = Object.create({}, {
+//     getFoo: {
+//       value: function () { return this.foo; }
+//     }
+//   });
+//   myObj.foo = 1;
+// console.log(Object.keys(myObj)); // console: ['foo']
+// console.log(Object.keys(arr1))
+// console.log(Object.keys(obj))
+// console.log(Object.keys(anObj))
+
+// console.log("grabKeys:")
+// console.log(Object.grabKeys(myObj)); // console: ['foo']
+// console.log(Object.grabKeys(arr1))
+// console.log(Object.grabKeys(obj))
+// console.log(Object.grabKeys(anObj))
