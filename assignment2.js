@@ -277,32 +277,32 @@ TESTING
 // console.log(Object.grabKeys(anObj))
 
 //grabValues
-console.log("values: ")
-const obj = { foo: 'bar', baz: 42 };
-console.log(Object.values(obj)); // ['bar', 42]
+// console.log("values: ")
+// const obj = { foo: 'bar', baz: 42 };
+// console.log(Object.values(obj)); // ['bar', 42]
 
-// Array-like object
-const arrayLikeObj1 = { 0: 'a', 1: 'b', 2: 'c' };
-console.log(Object.values(arrayLikeObj1 )); // ['a', 'b', 'c']
+// // Array-like object
+// const arrayLikeObj1 = { 0: 'a', 1: 'b', 2: 'c' };
+// console.log(Object.values(arrayLikeObj1 )); // ['a', 'b', 'c']
 
-// Array-like object with random key ordering
-// When using numeric keys, the values are returned in the keys' numerical order
-const arrayLikeObj2 = { 100: 'a', 2: 'b', 7: 'c' };
-console.log(Object.values(arrayLikeObj2 )); // ['b', 'c', 'a']
+// // Array-like object with random key ordering
+// // When using numeric keys, the values are returned in the keys' numerical order
+// const arrayLikeObj2 = { 100: 'a', 2: 'b', 7: 'c' };
+// console.log(Object.values(arrayLikeObj2 )); // ['b', 'c', 'a']
 
-// getFoo is property which isn't enumerable
-const my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
-my_obj.foo = 'bar';
-console.log(Object.values(my_obj)); // ['bar']
+// // getFoo is property which isn't enumerable
+// const my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+// my_obj.foo = 'bar';
+// console.log(Object.values(my_obj)); // ['bar']
 
-// non-object argument will be coerced to an object
-console.log(Object.values('foo')); // ['f', 'o', 'o']
+// // non-object argument will be coerced to an object
+// console.log(Object.values('foo')); // ['f', 'o', 'o']
 
-console.log("grabValues: ")
-console.log(Object.grabValues(obj));
-console.log(Object.grabValues(arrayLikeObj1 )); // ['a', 'b', 'c']
-console.log(Object.grabValues(arrayLikeObj2 )); // ['b', 'c', 'a']
-console.log(Object.grabValues(my_obj)); // ['bar']
-console.log(Object.grabValues('foo')); // ['f', 'o', 'o']
+// console.log("grabValues: ")
+// console.log(Object.grabValues(obj));
+// console.log(Object.grabValues(arrayLikeObj1 )); // ['a', 'b', 'c']
+// console.log(Object.grabValues(arrayLikeObj2 )); // ['b', 'c', 'a']
+// console.log(Object.grabValues(my_obj)); // ['bar']
+// console.log(Object.grabValues('foo')); // ['f', 'o', 'o']
 
 
