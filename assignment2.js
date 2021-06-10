@@ -74,8 +74,17 @@ Array.prototype.myIncludes = function(searchElement, fromIndex = 0) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
+Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
+    if(fromIndex < 0) fromIndex = this.length + fromIndex;
 
+    for(let i = fromIndex; i < this.length; i++) {
+        if(this[i] === undefined) continue;
+        // console.log("is", this[i], "equal to", searchElement, "y/n:", Object.is(this[i], searchElement))
+        if(Object.is(this[i], searchElement)) return i;
+    }
+
+    return -1;
+    
 };
 
 // PUSH //
@@ -92,8 +101,14 @@ Array.prototype.myPush = function(...args) {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length - 1) {
+    if(fromIndex < 0) fromIndex = this.length + fromIndex;
 
+    for(let i = fromIndex; i >= 0; i--) {
+        if(this[i] === undefined) continue;
+        if(this[i] === searchElement) return i;
+    }
+    return -1;
 };
 
 // KEYS //
@@ -191,3 +206,39 @@ TESTING
 // console.log([1, 2, 3].myIncludes(3, -1))
 // console.log([1, 2, NaN].myIncludes(NaN))
 // console.log([-0].myIncludes(0))
+
+//myIndexOf
+// let array = [2, 9, 9];
+// console.log("indexOf: ")
+
+// console.log(array.indexOf(2))
+// console.log(array.indexOf(7))
+// console.log(array.indexOf(9, 2))
+// console.log(array.indexOf(2, -1))
+// console.log(array.indexOf(2, -3))
+
+// console.log("myIndexOf: ")
+
+// console.log(array.myIndexOf(2))
+// console.log(array.myIndexOf(7))
+// console.log(array.myIndexOf(9, 2))
+// console.log(array.myIndexOf(2, -1))
+// console.log(array.myIndexOf(2, -3))
+
+//myLastIndexOf
+// var numbers = [2, 5, 9, 2];
+// console.log("lastIndexOf:")
+// console.log(numbers.lastIndexOf(2));     // 3
+// console.log(numbers.lastIndexOf(7));     // -1
+// console.log(numbers.lastIndexOf(2, 3));  // 3
+// console.log(numbers.lastIndexOf(2, 2));  // 0
+// console.log(numbers.lastIndexOf(2, -2)); // 0
+// console.log(numbers.lastIndexOf(2, -1)); // 3
+
+// console.log("myLastIndexOf:")
+// console.log(numbers.myLastIndexOf(2));     // 3
+// console.log(numbers.myLastIndexOf(7));     // -1
+// console.log(numbers.myLastIndexOf(2, 3));  // 3
+// console.log(numbers.myLastIndexOf(2, 2));  // 0
+// console.log(numbers.myLastIndexOf(2, -2)); // 0
+// console.log(numbers.myLastIndexOf(2, -1)); // 3
